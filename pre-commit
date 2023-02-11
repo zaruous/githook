@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Check if config.properties is included in the list of files to be committed
+if git diff --cached --name-only | grep -q "config.json"; then
+  echo "Commit failed: config.properties file is not allowed to be committed."
+  exit 1
+fi
+
+exit 0
